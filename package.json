@@ -4,9 +4,13 @@
   "description": "using express-session",
   "main": "app.js",
   "dependencies": {
+    "connect-mongo": "^4.4.1",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "hat": "0.0.3",
+    "mongoose": "^5.13.3",
     "morgan": "^1.10.0"
   },
   "devDependencies": {},
