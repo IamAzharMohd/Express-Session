@@ -10,6 +10,9 @@ const { DBURI } = process.env;
 //express app
 const app = express();
 
+//view engine
+app.set('view engine', 'ejs');
+
 //middleware
 // app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -53,27 +56,12 @@ const checkAuth = (req, res, next) => {
 
 //ROUTES
 app.get('/', (req, res) => {
-    res.send(`${req.session.user ? `
-    <a href = "/mycookie">cookie</a>
-    <a href = "/view">View</a>
-    <a href = "/logout">Log out</a>
-    `: `
-    <a href = "/mycookie">cookie</a>
-    <a href = "/signup">Sign up</a>
-    <a href = "/login">Log In</a>
-    `}`)
+    res.render('landing', { title: 'Landing' })
 })
 
 //signup form
 app.get('/signup', (req, res) => {
-    res.send(`<form action="/signup" method="POST">
-    <h3>Sign Up</h3>
-    <label for="name">Name</label>
-    <input type="text" name="name"> 
-    <label for="name">Password</label>
-    <input type="text" name="password">
-    <button type="submit">Sign up</button> 
-</form>`);
+   res.render('signup', { title: 'Sign Up'})
 })
 
 //login form
